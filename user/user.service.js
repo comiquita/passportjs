@@ -40,4 +40,9 @@ module.exports = function(app, User, passport)
       });
     });
   });
+
+  app.get('/loggedin', function(req, res)
+  {
+      res.send(req.isAuthenticated() ? req.user : '0');
+  });
 }
