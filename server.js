@@ -11,17 +11,7 @@ app.use(bodyParser.json());
 // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var UserSchema = new mongoose.Schema(
-{
-  username:  String,
-  password:  String,
-  email:     String,
-  firstName: String,
-  lastName:  String,
-  roles:     [String]
-}, {collection: "user"});
-
-var User = mongoose.model("User", UserSchema);
+var User = require("./user/user.model.js")();
 
 app.post("/rest/user", function(req, res)
 {
