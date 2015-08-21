@@ -9,7 +9,8 @@
     var service =
     {
       createUser : createUser,
-      login      : login
+      login      : login,
+      update     : update
     };
     return service;
     
@@ -23,6 +24,12 @@
     {
       $http.post("/rest/login", user)
       .success(callback);
+    }
+
+    function update(user, callback)
+    {
+      $http.put("/rest/update", user)
+      .success(callback)
     }
   }
 })();
