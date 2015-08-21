@@ -4,9 +4,13 @@
     .module("WhiteBoardApp")
     .controller("RegisterController", RegisterController);
   
-  function RegisterController($scope)
+  function RegisterController()
   {
-    $scope.register = function(user)
+    var vm = this;
+
+    vm.register = register;
+
+    function register(user)
     {
       console.log(user);
     }
