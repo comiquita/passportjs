@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jannunzi/passportjs/issues"
   },
-  "homepage": "https://github.com/jannunzi/passportjs#readme"
+  "homepage": "https://github.com/jannunzi/passportjs#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
