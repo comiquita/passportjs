@@ -18,7 +18,11 @@
           templateUrl: "login/login.view.html",
           controller : "LoginController as controller"
         })
-      .when("/profile",  {templateUrl: "profile/profile.view.html"})    
+      .when("/profile",
+        {
+          templateUrl: "profile/profile.view.html",
+          controller : "ProfileController as controller"
+        })
       .when("/admin",    {templateUrl: "admin/admin.view.html"})
       .otherwise({redirectTo: "/home"});    
   }
