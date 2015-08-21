@@ -4,7 +4,7 @@
     .module("WhiteBoardApp")
     .controller("LoginController", LoginController);
 
-  function LoginController(UserService)
+  function LoginController(UserService, $rootScope, $location)
   {
     var vm = this;
     
@@ -12,7 +12,18 @@
     
     function login(user)
     {
-      UserService.login(user);
+      UserService.login(user, function(response)
+      {
+        if(response != null)
+        {
+          $rootScope.currentUser = response;
+          $location.url("/profile");
+        }
+        else
+        {
+          vm.message = "User does not exist";
+        }
+      });
     }
   }
 })();

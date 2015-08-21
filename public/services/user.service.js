@@ -19,13 +19,10 @@
       .success(callback);
     }
 
-    function login(user)
+    function login(user, callback)
     {
       $http.post("/rest/login", user)
-      .success(function(response)
-      {
-        console.log(response);
-      });
+      .success(callback);
     }
   }
 })();
