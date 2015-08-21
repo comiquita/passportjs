@@ -44,4 +44,13 @@ app.post("/rest/user", function(req, res)
   });
 });
 
+app.post("/rest/login", function(req, res)
+{
+  var user = req.body;
+  User.findOne({username: user.username, password: user.password}, function(err, foundUser)
+  {
+    res.json(foundUser);
+  });
+});
+
 app.listen(3000);
