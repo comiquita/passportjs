@@ -14,7 +14,7 @@
     
     function createUser(user)
     {
-      $http.post("/register/user", user)
+      $http.post("/rest/user", user)
       .success(function(response)
         {
           console.log(response);
