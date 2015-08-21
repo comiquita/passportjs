@@ -16,6 +16,7 @@ app.use(cookieParser())
 app.use(passport.initialize());
 app.use(passport.session());
 
-var UserService = require("./user/user.service.js")(app);
+var UserModel = require("./user/user.model.js")();
+var UserService = require("./user/user.service.js")(app, UserModel);
 
 app.listen(3000);

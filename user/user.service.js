@@ -1,6 +1,4 @@
-var User = require("./user.model.js")();
-
-module.exports = function(app)
+module.exports = function(app, User)
 {
   app.post("/rest/user", function(req, res)
   {
