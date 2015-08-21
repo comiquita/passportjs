@@ -16,7 +16,31 @@ app.use(cookieParser())
 app.use(passport.initialize());
 app.use(passport.session());
 
+passport.use(new LocalStrategy(
+function(username, password, done)
+{
+    UserModel.findOne({username: username, password: password}, function(err, user)
+    {
+        if (err) { return done(err); }
+        if (!user) { return done(null, false); }
+        return done(null, user);
+    })
+}));
+
+passport.serializeUser(function(user, done)
+{
+    done(null, user);
+});
+
+passport.deserializeUser(function(user, done)
+{
+    UserModel.findById(user._id, function(err, user)
+    {
+        done(err, user);
+    });
+});
+
 var UserModel = require("./user/user.model.js")();
-var UserService = require("./user/user.service.js")(app, UserModel);
+var UserService = require("./user/user.service.js")(app, UserModel, passport);
 
 app.listen(3000);

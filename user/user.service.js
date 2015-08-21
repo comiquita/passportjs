@@ -1,4 +1,4 @@
-module.exports = function(app, User)
+module.exports = function(app, User, passport)
 {
   app.post("/rest/user", function(req, res)
   {
@@ -21,7 +21,7 @@ module.exports = function(app, User)
     });
   });
   
-  app.post("/rest/login", function(req, res)
+  app.post("/rest/login", passport.authenticate('local'), function(req, res)
   {
     var user = req.body;
     User.findOne({username: user.username, password: user.password}, function(err, foundUser)
