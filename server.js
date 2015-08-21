@@ -21,6 +21,8 @@ var UserSchema = new mongoose.Schema(
   roles:     [String]
 }, {collection: "user"});
 
+var User = mongoose.model("User", UserSchema);
+
 app.post("/rest/user", function(req, res)
 {
   var user = req.body
