@@ -19,7 +19,7 @@ var UserSchema = new mongoose.Schema(
   firstName: String,
   lastName:  String,
   roles:     [String]
-});
+}, {collection: "user"});
 
 app.post("/rest/user", function(req, res)
 {
