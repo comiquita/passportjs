@@ -53,4 +53,15 @@ app.post("/rest/login", function(req, res)
   });
 });
 
+app.put("/rest/update", function(req, res)
+{
+  User.findById(req.body._id, function(err, foundUser)
+  {
+    foundUser.update(req.body, function(err, count)
+    {
+      res.send(count);
+    });
+  });
+});
+
 app.listen(3000);
