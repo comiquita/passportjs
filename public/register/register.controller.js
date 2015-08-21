@@ -14,8 +14,15 @@
     {
       UserService.createUser(user, function(response)
       {
-        $rootScope.currentUser = response;
-        $location.url("/profile");
+        if(response != null)
+        {
+          $rootScope.currentUser = response;
+          $location.url("/profile");
+        }
+        else
+        {
+          vm.message = "User already exists";
+        }
       });
     }
   }

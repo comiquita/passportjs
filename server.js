@@ -27,9 +27,20 @@ app.post("/rest/user", function(req, res)
 {
   var user = req.body
   user.roles = ["student"];
-  User.create(user, function(err, result)
+  User.findOne({username: user.username}, function(err, existingUser)
   {
-    res.json(result);
+    if(existingUser != null)
+    {
+      res.json(null);
+      return;
+    }
+    else
+    {
+      User.create(user, function(err, result)
+      {
+        res.json(result);
+      });
+    }
   });
 });
 
