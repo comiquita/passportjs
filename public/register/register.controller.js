@@ -4,7 +4,7 @@
     .module("WhiteBoardApp")
     .controller("RegisterController", RegisterController);
   
-  function RegisterController()
+  function RegisterController($http)
   {
     var vm = this;
 
@@ -12,7 +12,11 @@
 
     function register(user)
     {
-      console.log(user);
+      $http.post("/register/user", user)
+      .success(function(response)
+        {
+          console.log(response);
+        })
     }
   }
 })();
