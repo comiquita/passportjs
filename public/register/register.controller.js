@@ -4,7 +4,7 @@
     .module("WhiteBoardApp")
     .controller("RegisterController", RegisterController);
   
-  function RegisterController(UserService, $location)
+  function RegisterController(UserService, $location, $rootScope)
   {
     var vm = this;
 
@@ -14,7 +14,7 @@
     {
       UserService.createUser(user, function(response)
       {
-        console.log(response);
+        $rootScope.currentUser = response;
         $location.url("/profile");
       });
     }
