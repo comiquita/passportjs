@@ -4,7 +4,7 @@
     .module("WhiteBoardApp")
     .controller("LoginController", LoginController);
 
-  function LoginController()
+  function LoginController(UserService)
   {
     var vm = this;
     
@@ -12,7 +12,7 @@
     
     function login(user)
     {
-      console.log(user);
+      UserService.login(user);
     }
   }
 })();

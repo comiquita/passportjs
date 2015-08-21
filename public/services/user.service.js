@@ -8,7 +8,8 @@
   {
     var service =
     {
-      createUser : createUser
+      createUser : createUser,
+      login      : login
     };
     return service;
     
@@ -16,6 +17,15 @@
     {
       $http.post("/rest/user", user)
       .success(callback);
+    }
+
+    function login(user)
+    {
+      $http.post("/rest/login", user)
+      .success(function(response)
+      {
+        console.log(response);
+      });
     }
   }
 })();
