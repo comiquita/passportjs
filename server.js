@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/whiteBoardDB');
+mongoose.connect('mongodb://localhost/wbdb');
 
 app.use(express.static(__dirname + '/public'));
 
@@ -26,7 +26,11 @@ var User = mongoose.model("User", UserSchema);
 app.post("/rest/user", function(req, res)
 {
   var user = req.body
-  console.log(user);
+  user.roles = ["student"];
+  User.create(user, function(err, result)
+  {
+    res.json(result);
+  });
 });
 
 app.listen(3000);
