@@ -10,7 +10,8 @@
     {
       createUser : createUser,
       login      : login,
-      update     : update
+      update     : update,
+      logout     : logout
     };
     return service;
     
@@ -29,6 +30,12 @@
     function update(user, callback)
     {
       $http.put("/rest/update", user)
+      .success(callback)
+    }
+
+    function logout(callback)
+    {
+      $http.post("/rest/logout")
       .success(callback)
     }
   }

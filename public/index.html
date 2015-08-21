@@ -9,10 +9,11 @@
     <script src="login/login.controller.js"></script>
     <script src="profile/profile.controller.js"></script>
     <script src="config.js"></script>
+    <script src="navController.js"></script>
     <script src="services/user.service.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="container" ng-controller="NavController as controller">
       <nav>
         <a href="#home">Home</a> |
         <span ng-hide="currentUser">
@@ -21,10 +22,13 @@
         </span>
         <span ng-show="currentUser">
           <a href="#profile">Profile</a> |
+          <a ng-click="controller.logout()">Logout</a> |
         </span>
         <a href="#admin">Admin</a>
       </nav>
       <h1>Welcome to WhiteBoard</h1>
+
+      <h2 ng-show="currentUser">Hello {{currentUser.username}}</h2>
 
       <div ng-view></div>
 
