@@ -12,7 +12,10 @@
 
     function register(user)
     {
-      UserService.createUser(user);
+      UserService.createUser(user, function(response)
+      {
+        console.log(response);
+      });
     }
   }
 })();

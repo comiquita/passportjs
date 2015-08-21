@@ -12,13 +12,10 @@
     };
     return service;
     
-    function createUser(user)
+    function createUser(user, callback)
     {
       $http.post("/rest/user", user)
-      .success(function(response)
-        {
-          console.log(response);
-        });
+      .success(callback);
     }
   }
 })();
