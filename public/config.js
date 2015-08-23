@@ -29,6 +29,7 @@
       .when("/admin",
         {
           templateUrl: "admin/admin.view.html",
+          controller : "AdminController as controller",
           resolve    : {
             admin    : checkAdmin
           }
