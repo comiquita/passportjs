@@ -8,13 +8,20 @@
   {
     var service =
     {
-      createUser : createUser,
-      login      : login,
-      update     : update,
-      logout     : logout
+      createUser   : createUser,
+      login        : login,
+      update       : update,
+      logout       : logout,
+      findAllUsers : findAllUsers
     };
     return service;
-    
+
+    function findAllUsers(callback)
+    {
+      $http.get("/rest/user")
+      .success(callback);
+    }
+
     function createUser(user, callback)
     {
       $http.post("/rest/user", user)
