@@ -12,9 +12,16 @@
       login        : login,
       update       : update,
       logout       : logout,
-      findAllUsers : findAllUsers
+      findAllUsers : findAllUsers,
+      removeUser   : removeUser
     };
     return service;
+
+    function removeUser(userId, callback)
+    {
+      $http.delete("/rest/user/" + userId)
+      .success(callback);
+    }
 
     function findAllUsers(callback)
     {

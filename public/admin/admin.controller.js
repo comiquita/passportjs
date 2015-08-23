@@ -8,6 +8,15 @@
   {
     var vm = this;
     vm.addUser = addUser;
+    vm.removeUser = removeUser;
+
+    function removeUser(userId)
+    {
+      UserService.removeUser(userId, function(response)
+      {
+        findAllUsers(setAllUsers);
+      });
+    }
 
     function addUser(newUser)
     {

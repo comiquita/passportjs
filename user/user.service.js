@@ -1,5 +1,20 @@
 module.exports = function(app, User, passport)
 {
+  
+  app.delete("/rest/user/:id", function(req, res)
+  {
+    isUserAdmin(req.user.username, function(user)
+    {
+      if(user != '0')
+      {
+        User.remove({_id : req.params.id}, function(err, count)
+        {
+          res.send(count);
+        });
+      }
+    });
+  });
+  
   app.get("/rest/user", function(req, res)
   {
     isUserAdmin(req.user.username, function(user)

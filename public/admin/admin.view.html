@@ -28,6 +28,10 @@
       <td>{{user.lastName}}</td>
       <td>{{user.email}} </td>
       <td>{{user.roles}}</td>
-      <td></td>
+      <td>
+          <button ng-click="controller.removeUser(user._id)" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+      </td>
     </tr>
 </table>
