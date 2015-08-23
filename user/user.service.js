@@ -52,4 +52,26 @@ module.exports = function(app, User, passport)
     res.send(200);
   });
 
+  app.get('/rest/admin', function(req, res)
+  {
+    if(req.isAuthenticated())
+    {
+      User.findOne({username: req.user.username}, function(err, foundUser)
+      {
+        if(foundUser.roles.indexOf('admin') > 0)
+        {
+          res.json(foundUser);
+        }
+        else
+        {
+          res.send('0');
+        }
+      });
+    }
+    else
+    {
+      res.send('0');
+    }
+  });
+
 }
