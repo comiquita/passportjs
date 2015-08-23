@@ -13,9 +13,16 @@
       update       : update,
       logout       : logout,
       findAllUsers : findAllUsers,
-      removeUser   : removeUser
+      removeUser   : removeUser,
+      findUserById : findUserById
     };
     return service;
+
+    function findUserById(userId, callback)
+    {
+      $http.get("/rest/user/" + userId)
+      .success(callback);
+    }
 
     function removeUser(userId, callback)
     {

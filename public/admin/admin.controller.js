@@ -9,6 +9,16 @@
     var vm = this;
     vm.addUser = addUser;
     vm.removeUser = removeUser;
+    vm.selectUser = selectUser;
+    vm.user = {};
+
+    function selectUser(userId)
+    {
+      UserService.findUserById(userId, function(response)
+      {
+        vm.user = response;
+      });
+    }
 
     function removeUser(userId)
     {

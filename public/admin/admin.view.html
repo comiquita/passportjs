@@ -10,12 +10,12 @@
         <th>Roles</th>
     </tr>
     <tr>
-      <td><input ng-model="user.username"  class="form-control" placeholder="username" type="text"/></td>
-      <td><input ng-model="user.firstName" class="form-control" placeholder="first name" type="text"/></td>
-      <td><input ng-model="user.lastName"  class="form-control" placeholder="last name" type="text"/></td>
-      <td><input ng-model="user.email"     class="form-control" placeholder="email" type="email"/> </td>
-      <td><input ng-model="user.roles"     class="form-control" placeholder="roles" type="text"/></td>
-      <td><button ng-click="controller.addUser(user)" class="btn btn-primary">
+      <td><input ng-model="controller.user.username"  class="form-control" placeholder="username" type="text"/></td>
+      <td><input ng-model="controller.user.firstName" class="form-control" placeholder="first name" type="text"/></td>
+      <td><input ng-model="controller.user.lastName"  class="form-control" placeholder="last name" type="text"/></td>
+      <td><input ng-model="controller.user.email"     class="form-control" placeholder="email" type="email"/> </td>
+      <td><input ng-model="controller.user.roles"     class="form-control" placeholder="roles" type="text"/></td>
+      <td><button ng-click="controller.addUser(controller.user)" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus"></span>
           </button>
       </td>
@@ -31,6 +31,9 @@
       <td>
           <button ng-click="controller.removeUser(user._id)" class="btn btn-danger">
             <span class="glyphicon glyphicon-remove"></span>
+          </button>
+          <button ng-click="controller.selectUser(user._id)" class="btn btn-info">
+            <span class="glyphicon glyphicon-pencil"></span>
           </button>
       </td>
     </tr>
