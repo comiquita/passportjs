@@ -112,7 +112,7 @@ module.exports = function(app, User, passport)
     {
       User.findOne({username: req.user.username}, function(err, foundUser)
       {
-        if(foundUser.roles.indexOf('admin') > 0)
+        if(foundUser.roles.indexOf('admin') != 1)
         {
           res.json(foundUser);
         }
@@ -132,7 +132,7 @@ module.exports = function(app, User, passport)
   {
     User.findOne({username: username}, function(err, foundUser)
     {
-      if(foundUser.roles.indexOf('admin') > 0)
+      if(foundUser.roles.indexOf('admin') != -1)
       {
         callback(foundUser);
       }

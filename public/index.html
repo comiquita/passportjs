@@ -25,7 +25,7 @@
           | <a href="#profile">Profile</a>
           | <a href="#" ng-click="controller.logout()">Logout</a>
         </span>
-        <span ng-show="currentUser.roles.indexOf('admin') > 0">
+        <span ng-show="currentUser.roles.indexOf('admin') != -1">
           | <a href="#admin">Admin</a>
         </span>
       </nav>
