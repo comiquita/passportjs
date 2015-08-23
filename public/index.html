@@ -15,16 +15,18 @@
   <body>
     <div class="container" ng-controller="NavController as controller">
       <nav>
-        <a href="#home">Home</a> |
+        <a href="#home">Home</a>
         <span ng-hide="currentUser">
-          <a href="#register">Register</a> |
-          <a href="#login">Login</a> |
+          | <a href="#register">Register</a>
+          | <a href="#login">Login</a>
         </span>
         <span ng-show="currentUser">
-          <a href="#profile">Profile</a> |
-          <a ng-click="controller.logout()">Logout</a> |
+          | <a href="#profile">Profile</a>
+          | <a href="#" ng-click="controller.logout()">Logout</a>
         </span>
-        <a href="#admin">Admin</a>
+        <span ng-show="currentUser.roles.indexOf('admin') > 0">
+          | <a href="#admin">Admin</a>
+        </span>
       </nav>
       <h1>Welcome to WhiteBoard</h1>
 
