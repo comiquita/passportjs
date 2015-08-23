@@ -9,6 +9,17 @@
         <th>Email</th>
         <th>Roles</th>
     </tr>
+    <tr>
+      <td><input ng-model="user.username"  class="form-control" placeholder="username" type="text"/></td>
+      <td><input ng-model="user.firstName" class="form-control" placeholder="first name" type="text"/></td>
+      <td><input ng-model="user.lastName"  class="form-control" placeholder="last name" type="text"/></td>
+      <td><input ng-model="user.email"     class="form-control" placeholder="email" type="email"/> </td>
+      <td><input ng-model="user.roles"     class="form-control" placeholder="roles" type="text"/></td>
+      <td><button ng-click="addUser(user)" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+      </td>
+    </tr>
   </thead>
   <tbody>
     <tr ng-repeat="user in controller.users">
@@ -17,5 +28,6 @@
       <td>{{user.lastName}}</td>
       <td>{{user.email}} </td>
       <td>{{user.roles}}</td>
+      <td></td>
     </tr>
 </table>
