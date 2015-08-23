@@ -1,5 +1,19 @@
 module.exports = function(app, User, passport)
 {
+  app.get("/rest/user", function(req, res)
+  {
+    isUserAdmin(req.user.username, function(user)
+    {
+      if(user != '0')
+      {
+        User.find(function(err, users)
+        {
+          res.json(users);
+        });
+      }
+    });
+  });
+
   app.post("/rest/user", function(req, res)
   {
     var user = req.body
@@ -73,5 +87,20 @@ module.exports = function(app, User, passport)
       res.send('0');
     }
   });
+
+  function isUserAdmin(username, callback)
+  {
+    User.findOne({username: username}, function(err, foundUser)
+    {
+      if(foundUser.roles.indexOf('admin') > 0)
+      {
+        callback(foundUser);
+      }
+      else
+      {
+        callback('0');
+      }
+    });
+  }
 
 }
