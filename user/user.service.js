@@ -45,7 +45,14 @@ module.exports = function(app, User, passport)
   app.post("/rest/user", function(req, res)
   {
     var user = req.body
-    user.roles = ["student"];
+    if(user.roles)
+    {
+      user.roles = user.roles.split(",");
+    }
+    else
+    {
+      user.roles = ["student"];
+    }
     User.findOne({username: user.username}, function(err, existingUser)
     {
       if(existingUser != null)
@@ -76,6 +83,11 @@ module.exports = function(app, User, passport)
   {
     User.findById(req.body._id, function(err, foundUser)
     {
+      var user = req.body;
+      if(user.roles.indexOf(",") > 0)
+      {
+        user.roles = user.roles.split(",");
+      }
       foundUser.update(req.body, function(err, count)
       {
         res.send(count);

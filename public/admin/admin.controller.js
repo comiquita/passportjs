@@ -10,7 +10,16 @@
     vm.addUser = addUser;
     vm.removeUser = removeUser;
     vm.selectUser = selectUser;
+    vm.updateUser = updateUser;
     vm.user = {};
+
+    function updateUser(user)
+    {
+      UserService.update(user, function(response)
+      {
+        findAllUsers(setAllUsers);
+      });
+    }
 
     function selectUser(userId)
     {

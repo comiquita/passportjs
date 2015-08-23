@@ -15,8 +15,12 @@
       <td><input ng-model="controller.user.lastName"  class="form-control" placeholder="last name" type="text"/></td>
       <td><input ng-model="controller.user.email"     class="form-control" placeholder="email" type="email"/> </td>
       <td><input ng-model="controller.user.roles"     class="form-control" placeholder="roles" type="text"/></td>
-      <td><button ng-click="controller.addUser(controller.user)" class="btn btn-primary">
+      <td>
+          <button ng-click="controller.addUser(controller.user)" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus"></span>
+          </button>
+          <button ng-click="controller.updateUser(controller.user)" class="btn btn-success">
+            <span class="glyphicon glyphicon-ok"></span>
           </button>
       </td>
     </tr>
