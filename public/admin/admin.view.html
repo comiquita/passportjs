@@ -1,1 +1,21 @@
 <h1>Admin</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+        <th>Username</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Email</th>
+        <th>Roles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in controller.users">
+      <td>{{user.username}}</td>
+      <td>{{user.firstname</td>
+      <td>{{user.last}}</td>
+      <td>{{user.email}} </td>
+      <td>{{user.roles}}</td>
+    </tr>
+</table>
